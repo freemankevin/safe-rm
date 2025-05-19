@@ -6,10 +6,6 @@ on:
   push:
     branches:
       - main
-      - master
-    paths:
-      - 'safe-rm.sh'
-      - 'package-tar.sh'
 
 jobs:
   build:
