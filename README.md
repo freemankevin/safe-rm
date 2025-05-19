@@ -70,7 +70,7 @@ rm [选项]... [文件]...
 
 3. 删除数据目录（需要特权）：
    ```bash
-   rm -rf /data/test --force --verify=true
+   rm -rf /data/ --force --verify=true
    ```
 
 ## 安全特性
