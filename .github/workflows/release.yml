@@ -1,8 +1,7 @@
 name: Release Package
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 0:00 运行
+  workflow_dispatch:  # 添加手动触发
   push:
     branches:
       - main

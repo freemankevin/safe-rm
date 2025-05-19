@@ -19,7 +19,7 @@ safe-rm 是一个增强的文件删除工具，旨在防止危险的 rm 命令�
 ### 安装步骤
 1. 下载最新版本的安装包：
    ```bash
-   wget https://github.com/freemankevin/safe-rm/archive/main.tar.gz
+   wget https://github.com/freemankevin/safe-rm/releases/download/release-20250519/safe-rm.tar.gz
    ```
 
 2. 解压安装包：
@@ -85,13 +85,40 @@ rm [选项]... [文件]...
    - 可配置自定义保护目录
 
 3. 操作日志
-   - 记录所有删除操作
+   - 操作时间戳
+   - 操作状态（成功/失败）
+   - 执行的命令
+   - 操作的目录
    - 日志位置：/var/log/rm_protect.log
 
 ### 注意事项
 - 某些操作可能需要 root 权限
 - 建议定期检查日志文件
 - 重要数据建议先备份再删除
+
+
+### 配置说明
+1. **默认保护目录**
+   safe-rm 默认保护以下系统目录：
+   ```bash
+   /, /bin, /sbin, /lib, /lib64, /usr, /var, /etc,
+   /boot, /proc, /sys, /dev, /run, /srv, /opt,
+   /media, /mnt, /tmp
+   ```
+
+2. **默认数据目录**
+   以下目录需要特权才能删除：
+   ```bash
+   /root, /home, /data
+   ```
+
+3. **扩展配置**
+   可以通过安装前编辑 config.sh 来扩展配置：
+   - EXTRA_PROTECTED_DIRS：添加额外的需要保护的系统目录
+   - EXTRA_USER_DIRS：添加额外的需要特权的数据目录
+   - LOGFILE：日志文件路径，默认为 /var/log/rm_protect.log
+
+
 
 ## 贡献指南
 欢迎提交问题报告和改进建议！请访问我们的 GitHub 仓库参与项目开发。
